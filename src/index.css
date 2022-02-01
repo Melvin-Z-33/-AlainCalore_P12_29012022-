@@ -1,5 +1,7 @@
 body {
+  max-width: 1440px;
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +9,59 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+li {
+  list-style-type: none;
+}
+
+/** GRID **/
+#root {
+  display: grid;
+  grid-template-areas:
+    "navbar navbar navbar"
+    "verticalbar userdashboard userdashboard"
+    "verticalbar userdashboard userdashboard";
+  grid-template-rows: 80px 1fr 70px;
+  grid-template-columns: 20% 1fr 15%;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  height: 100vh;
+  margin: 0;
+}
+
+
+
+.navbar {
+  grid-area: navbar;
+}
+
+.verticalbar {
+  grid-area: verticalbar;
+}
+
+.userdashboard {
+  grid-area: userdashboard;
+}
+
+
+
+
+
+/* Stack the layout on small devices/viewports. */
+@media all and (max-width: 575px) {
+  body {
+    grid-template-areas:
+      "header"
+      "article"
+      "ads"
+      "nav"
+      "footer";
+    grid-template-rows: 80px 1fr 70px 1fr 70px;
+    grid-template-columns: 1fr;
+  }
 }

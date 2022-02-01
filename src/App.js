@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import Notfound from './pages/Notfound';
+import { Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import UserDashboard from './pages/UserDashboard';
+import Navbar from './components/Navbar/Navbar';
+import Verticalbar from './components/Verticalbar/Verticalbar';
 import './App.css';
+export const baseURL = 'http://localhost:3000';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<Navbar />
+			<Verticalbar />
+
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="user/:id" element={<UserDashboard />} />
+				<Route path="*" element={<Notfound />} />
+			</Routes>
+		</>
+	);
 }
 
 export default App;
