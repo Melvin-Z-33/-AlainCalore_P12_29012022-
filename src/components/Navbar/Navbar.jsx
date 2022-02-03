@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './../../assets/logo.svg';
 import './Navbar.scss';
-
+import { NavLink } from 'react-router-dom';
 /**
  * Represents navigations of application.
  * @param {string} logo - image url.
@@ -11,12 +11,18 @@ function Navbar() {
 	return (
 		<nav className="navbar">
 			<img src={logo} alt="bohnome qui court" className="navbar-logo" />
-			<ul className="navbar-links">
-				<li className="navbar-link">Accueil</li>
-				<li className="navbar-link">Profil</li>
-				<li className="navbar-link">Réglage</li>
-				<li className="navbar-link">Communauté</li>
-			</ul>
+			<NavLink to="/" className="navbar-link">
+				Accueil
+			</NavLink>
+			<NavLink to="user/:id" className="navbar-link">
+				Profil
+			</NavLink>
+			<NavLink to="/" className="navbar-link">
+				Réglage
+			</NavLink>
+			<NavLink to="/" className="navbar-link">
+				Communauté
+			</NavLink>
 		</nav>
 	);
 }

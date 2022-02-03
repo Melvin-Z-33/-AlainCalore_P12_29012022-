@@ -1,7 +1,34 @@
 .verticalbar {
 	display: flex;
 	flex-direction: column;
-
+	justify-content: space-evenly;
+	width: 117px;
 	background-color: #020203;
 	color: white;
+	&-grouplink {
+		display: flex;
+		flex-direction: column;
+		margin: 90px auto 0;
+	}
+	&-text {
+		margin: 0 auto;
+		writing-mode: tb-rl;
+		text-orientation: mixed;
+		font-family: Roboto;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 24px;
+		transform: rotate(180deg);
+	}
+	button {
+		margin-bottom: 20px;
+		width: 64px;
+		height: 64px;
+		color: white;
+
+		img {
+			margin: 0 auto;
+		}
+	}
 }

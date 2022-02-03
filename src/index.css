@@ -1,12 +1,73 @@
-body {
-  max-width: 1440px;
+/** RESET **/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+
+
+body {
+
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'sans-serif', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100vw;
 }
 
 
@@ -19,17 +80,20 @@ li {
   list-style-type: none;
 }
 
+
+
 /** GRID **/
 #root {
   display: grid;
   grid-template-areas:
-    "navbar navbar navbar"
-    "verticalbar userdashboard userdashboard"
-    "verticalbar userdashboard userdashboard";
-  grid-template-rows: 80px 1fr 70px;
-  grid-template-columns: 20% 1fr 15%;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
+    "navbar navbar"
+    "verticalbar userdashboard ";
+  /* "verticalbar userdashboard userdashboard"; */
+  grid-template-rows: 91px 1fr;
+  grid-template-columns: 117px 1fr;
+  /* grid-row-gap: 10px;
+  grid-column-gap: 10px; */
+  width: 100%;
   height: 100vh;
   margin: 0;
 }
