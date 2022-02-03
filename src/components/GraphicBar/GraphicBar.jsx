@@ -1,5 +1,5 @@
 import React from 'react';
 import './GrapicBar.scss';
 export default function GraphicBar() {
-	return <div className="grapic-bar">Activité quotidienne</div>;
+	return <div className="graphic-bar">Activité quotidienne</div>;
 }
