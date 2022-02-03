@@ -8,10 +8,37 @@ import './nutrientsBar.scss';
 export default function NutrientsBar() {
 	return (
 		<div className="nutrients-bar">
-			<img src={calories} alt="" />
-			<img src={protein} alt="" />
-			<img src={carbs} alt="" />
-			<img src={fat} alt="" />
+			<div className="nutrients-group">
+				<img src={calories} alt="" />
+				<div className="nutrients-text">
+					<span className="nutrients">1950kCAL</span>
+					<span className="unite">calories</span>
+				</div>
+			</div>
+
+			<div className="nutrients-group">
+				<img src={protein} alt="" />
+				<div className="nutrients-text">
+					<span className="nutrients">155g</span>
+					<span className="unite">Proteines</span>
+				</div>
+			</div>
+
+			<div className="nutrients-group">
+				<img src={carbs} alt="" />
+				<div className="nutrients-text">
+					<span className="nutrients">290g</span>
+					<span className="unite">Glucides</span>
+				</div>
+			</div>
+
+			<div className="nutrients-group">
+				<img src={fat} alt="" />
+				<div className="nutrients-text">
+					<span className="nutrients">50g</span>
+					<span className="unite">Lipides</span>
+				</div>
+			</div>
 		</div>
 	);
 }
