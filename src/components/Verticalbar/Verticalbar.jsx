@@ -15,7 +15,7 @@ export default function Verticalbar() {
 						<img src={meditation} alt=""></img>
 					</button>
 				</NavLink>
-				<NavLink to="user/:id" className="navbar-link">
+				<NavLink to="user/12" className="navbar-link">
 					<button>
 						<img src={swing} alt=""></img>
 					</button>
