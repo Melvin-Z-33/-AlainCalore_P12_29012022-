@@ -2,7 +2,6 @@ import React from 'react';
 import './Header.scss';
 
 export default function Header(name) {
-	console.log(name.name.userInfos.firstName);
 	return (
 		<header className="header">
 			<p>

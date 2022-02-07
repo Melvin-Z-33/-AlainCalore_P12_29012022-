@@ -9,7 +9,7 @@ import './Dashboard.scss';
 let userMain;
 
 export default function Dashboard() {
-	let user = 'Thomas';
+	let user;
 	const UserContext = createContext(user);
 
 	//* 1. Trouver le nom dynamiquement */
@@ -23,12 +23,11 @@ export default function Dashboard() {
 	};
 	USER_MAIN_DATA.filter(checkUser);
 
-	//****** */
 	return (
 		<UserContext.Provider value={user}>
 			<div className="dashboard">
 				<Header name={user} />
-				<NutrientsBar />
+				<NutrientsBar nutrients={user} />
 				<GraphicBar />
 				<Objective />
 			</div>
