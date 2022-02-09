@@ -5,10 +5,8 @@ import carbs from '../../assets/nutrients/carbs-icon.svg';
 import fat from '../../assets/nutrients/fat-icon.svg';
 import './nutrientsBar.scss';
 
-export default function NutrientsBar(nutrients) {
-	const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
-		nutrients.nutrients.keyData;
-	console.log(nutrients.nutrients.keyData);
+export default function NutrientsBar(props) {
+	const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = props.nutrients;
 
 	return (
 		<div className="nutrients-bar">
