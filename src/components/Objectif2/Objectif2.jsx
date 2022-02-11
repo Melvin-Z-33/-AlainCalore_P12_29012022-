@@ -1,62 +1,65 @@
 import React, { PureComponent } from 'react';
-import {
-	Radar,
-	RadarChart,
-	PolarGrid,
-	PolarAngleAxis,
-	PolarRadiusAxis,
-	ResponsiveContainer,
-} from 'recharts';
-import './Objectif2.scss';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import PropTypes from 'prop-types';
+import './radarchart.scss';
 
-const data = [
-	{
-		subject: 'Math',
-		A: 120,
-		B: 110,
-		fullMark: 150,
-	},
-	{
-		subject: 'Chinese',
-		A: 98,
-		B: 130,
-		fullMark: 150,
-	},
-	{
-		subject: 'English',
-		A: 86,
-		B: 130,
-		fullMark: 150,
-	},
-	{
-		subject: 'Geography',
-		A: 99,
-		B: 100,
-		fullMark: 150,
-	},
-	{
-		subject: 'Physics',
-		A: 85,
-		B: 90,
-		fullMark: 150,
-	},
-	{
-		subject: 'History',
-		A: 65,
-		B: 85,
-		fullMark: 150,
-	},
-];
+/**
+ * Represents a Radarchart.
+ * @const {object} datasUser - object contain datas user.
+ * @const {array} datas - array contain datas radial chart.
+ * @const {object} kind - contain kind.
+ * @function kindFormatter - return the kind with first letter in uppercase.
+ * @return RadarChart
+ *
+ */
 
-export default function Objectif2() {
-	return (
-		<ResponsiveContainer width="100%" height="100%">
-			<RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-				<PolarGrid />
-				<PolarAngleAxis dataKey="subject" />
-				<PolarRadiusAxis />
-				<Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-			</RadarChart>
-		</ResponsiveContainer>
-	);
+export default function Objectif2(props) {
+	const { performance, kind } = props;
+
+	// console.log(performance);
+
+	// const datasUser = this.props.performance;
+	if (props !== undefined) {
+		//const datas = datasUser.items.data.data;
+		const datas = [...new Set(performance)];
+		console.log(datas);
+		//
+		// const kind = datasUser.items.data.kind;
+		const kindFormatter = (item) => {
+			console.log(item);
+			return kind[item.kind].charAt(0).toUpperCase() + kind[item.kind].slice(1);
+		};
+		return (
+			<ResponsiveContainer width="100%" height="100%">
+				<RadarChart
+					cx="50%"
+					cy="50%"
+					outerRadius="80%"
+					data={datas}
+					margin={{ left: 25, right: 25 }}
+				>
+					<PolarGrid radialLines={false} />
+					<PolarAngleAxis
+						dataKey={kindFormatter}
+						fontSize={10}
+						stroke="#FFF"
+						tickLine={false}
+					/>
+					<Radar
+						dataKey="value"
+						stroke="#8884d8"
+						strokeWidth={0}
+						fill="#8884d8"
+						fillOpacity={0.6}
+					/>
+				</RadarChart>
+			</ResponsiveContainer>
+		);
+	} else {
+		return null;
+	}
 }
+
+// Radarchart.propTypes = {
+// 	performance: PropTypes.object,
+// };

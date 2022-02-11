@@ -30,12 +30,15 @@ export default function Dashboard() {
 			}
 		}
 	}
-	console.log(userNew[1]);
+	// console.log(userNew[3]);
 	persona.id = userNew[0].id;
 	persona.firstName = userNew[0].userInfos.firstName;
 	persona.keyData = userNew[0].keyData;
 	persona.activity_sessions = userNew[1].sessions;
-	console.log(persona);
+	persona.average_sessions = userNew[2].sessions;
+	persona.perfomance_data = userNew[3].data;
+	persona.kind = userNew[3].kind;
+	// console.log(persona);
 
 	let user;
 	const UserContext = createContext(user);
@@ -48,7 +51,7 @@ export default function Dashboard() {
 				<Header name={persona.firstName} />
 				<NutrientsBar nutrients={persona.keyData} />
 				<GraphicBar activity={persona.activity_sessions} />
-				<Objective />
+				<Objective average={persona} />
 			</div>
 		</UserContext.Provider>
 	);

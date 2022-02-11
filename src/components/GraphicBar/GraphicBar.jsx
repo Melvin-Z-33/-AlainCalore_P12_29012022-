@@ -58,7 +58,6 @@ const data = [
 ];
 
 export default function GraphicBar(props) {
-	console.log(props.activity[1].kilogram);
 	let dataForArrayActivity = [];
 
 	function test(array) {
@@ -70,7 +69,7 @@ export default function GraphicBar(props) {
 			};
 			dataForArrayActivity.push(obj);
 		}
-		console.log(dataForArrayActivity);
+		// console.log(dataForArrayActivity);
 	}
 	test(props);
 
