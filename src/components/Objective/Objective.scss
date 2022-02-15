@@ -5,10 +5,20 @@
 }
 
 .rectangle {
-	background: red;
 	height: 263px;
 	width: 258px;
 	left: 0px;
 	top: 0px;
 	border-radius: 5px;
+}
+
+.rectangle:nth-child(1) {
+	background-color: red;
+}
+
+.rectangle:nth-child(2) {
+	background-color: grey;
+}
+.rectangle:nth-child(3) {
+	background-color: #e5e5e5;
 }

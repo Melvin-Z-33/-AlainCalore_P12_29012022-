@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
-import PropTypes from 'prop-types';
+
 import './radarchart.scss';
 
 /**
@@ -16,18 +16,9 @@ import './radarchart.scss';
 export default function Objectif2(props) {
 	const { performance, kind } = props;
 
-	// console.log(performance);
-
-	// const datasUser = this.props.performance;
 	if (props !== undefined) {
-		//const datas = datasUser.items.data.data;
-		const datas = [...new Set(performance)];
-		console.log(datas);
-		//
-		// const kind = datasUser.items.data.kind;
-		const kindFormatter = (item) => {
-			console.log(item);
-			return kind[item.kind].charAt(0).toUpperCase() + kind[item.kind].slice(1);
+		const capitalLetterKind = (activity) => {
+			return kind[activity.kind].charAt(0).toUpperCase() + kind[activity.kind].slice(1);
 		};
 		return (
 			<ResponsiveContainer width="100%" height="100%">
@@ -35,12 +26,12 @@ export default function Objectif2(props) {
 					cx="50%"
 					cy="50%"
 					outerRadius="80%"
-					data={datas}
+					data={performance}
 					margin={{ left: 25, right: 25 }}
 				>
 					<PolarGrid radialLines={false} />
 					<PolarAngleAxis
-						dataKey={kindFormatter}
+						dataKey={capitalLetterKind}
 						fontSize={10}
 						stroke="#FFF"
 						tickLine={false}
@@ -59,7 +50,3 @@ export default function Objectif2(props) {
 		return null;
 	}
 }
-
-// Radarchart.propTypes = {
-// 	performance: PropTypes.object,
-// };

@@ -1,6 +1,4 @@
-import './Averagesession.scss';
 import React, { PureComponent } from 'react';
-import styled from 'styled-components';
 import {
 	LineChart,
 	Line,
@@ -12,37 +10,68 @@ import {
 	ResponsiveContainer,
 	Text,
 } from 'recharts';
-import PropTypes from 'prop-types';
 
-// ** TESTING ********************************
+const data = [
+	{
+		name: 'L',
+		uv: 4000,
+		pv: 2400,
+		amt: 2400,
+	},
+	{
+		name: 'M',
+		uv: 3000,
+		pv: 1398,
+		amt: 2210,
+	},
+	{
+		name: 'M',
+		uv: 2000,
+		pv: 9800,
+		amt: 2290,
+	},
+	{
+		name: 'J',
+		uv: 2780,
+		pv: 3908,
+		amt: 2000,
+	},
+	{
+		name: 'V',
+		uv: 1890,
+		pv: 4800,
+		amt: 2181,
+	},
+	{
+		name: 'S',
+		uv: 2390,
+		pv: 3800,
+		amt: 2500,
+	},
+	{
+		name: 'D',
+		uv: 3490,
+		pv: 4300,
+		amt: 2100,
+	},
+];
 
 const AverageSession = (sessions) => {
+	const { day, sessionLength } = sessions;
 	const days = { 1: 'L', 2: 'M', 3: 'M', 4: 'J', 5: 'V', 6: 'S', 7: 'D' };
 
-	/**
-	 * transforms the numbers of the day by the initials of the corresponding days
-	 * @returns an array of object were the day value is a capital letter and the sessionLength value is the same as in data
-	 */
-
 	const formatedDays = () => {
-		return sessions.average.average_sessions.map((session) => ({
+		return sessions.average.map((session) => ({
 			day: days[session.day],
 			sessionLength: session.sessionLength,
 		}));
 	};
 
-	/**
-	 * Customize the tooltip to display the average time when active
-	 * @param {boolean} active calculate internally
-	 * @param {array} payload data array were each object correspond to a Bar, calculated internally
-	 * @returns a tooltip displaying the data of the line (here minutes)
-	 */
-
 	const CustomTooltip = ({ active, payload }) => {
 		if (active) {
 			return (
 				<div style={{ backgroundColor: 'white', color: 'black', padding: '1px' }}>
-					<p>{`${payload[0].payload.sessionLength} min`}</p>
+					<p>{`${payload[0].value} min`}</p>
 				</div>
 			);
 		}
@@ -50,14 +79,21 @@ const AverageSession = (sessions) => {
 		return null;
 	};
 
-	// console.log(CustomTooltip);
 	return (
-		<div className="average_session_graph">
-			<h2 style={{ padding: 10, color: 'rgba(255, 255, 255, .5)', fontWeight: 400 }}>
-				Durée moyenne des sessions
-			</h2>
-			<ResponsiveContainer width="100%" height="80%" style={{ padding: 10 }}>
-				<LineChart max-width={300} max-height={100} data={formatedDays()}>
+		<>
+			<h2>Durée moyenne des sessions</h2>
+			<ResponsiveContainer width="100%" height="100%" style={{ padding: 10 }}>
+				<LineChart
+					width={300}
+					height={300}
+					data={formatedDays()}
+					margin={{
+						top: 5,
+						right: 0,
+						left: 0,
+						bottom: 5,
+					}}
+				>
 					<XAxis
 						dataKey="day"
 						axisLine={false}
@@ -65,33 +101,126 @@ const AverageSession = (sessions) => {
 						tick={{ color: 'white' }}
 						style={{ padding: 10, color: 'white' }}
 					/>
+
+					<Legend />
+
 					<Line
-						type="basis"
+						type="monotone"
 						dataKey="sessionLength"
+						dot={false}
 						stroke="white"
 						strokeWidth={2}
-						dot={false}
 						style={{ padding: 10, color: 'white' }}
 					/>
 					<Text textAnchor={null}></Text>
 					<Tooltip cursor={false} content={<CustomTooltip />} />
 				</LineChart>
 			</ResponsiveContainer>
-			{/* color: "rgba(255, 255, 255, .5)" */}
-		</div>
+		</>
 	);
 };
-
-AverageSession.propTypes = {
-	data: PropTypes.arrayOf(
-		PropTypes.shape({
-			day: PropTypes.number.isRequired,
-			sessionLength: PropTypes.number.isRequired,
-		}),
-	),
-};
-
 export default AverageSession;
+// import './Averagesession.scss';
+// import React, { PureComponent } from 'react';
+// import styled from 'styled-components';
+// import {
+// 	LineChart,
+// 	Line,
+// 	XAxis,
+// 	YAxis,
+// 	CartesianGrid,
+// 	Tooltip,
+// 	Legend,
+// 	ResponsiveContainer,
+// 	Text,
+// } from 'recharts';
+// import PropTypes from 'prop-types';
+
+// // ** TESTING ********************************
+
+// const AverageSession = (sessions) => {
+// 	const { day, sessionLength } = sessions.average.average_sessions;
+// 	console.log(sessions.average.average_sessions.day);
+// 	const days = { 1: 'L', 2: 'M', 3: 'M', 4: 'J', 5: 'V', 6: 'S', 7: 'D' };
+
+// 	console.log(days);
+
+// 	/**
+// 	 * transforms the numbers of the day by the initials of the corresponding days
+// 	 * @returns an array of object were the day value is a capital letter and the sessionLength value is the same as in data
+// 	 */
+
+// 	sessions.average.average_sessions.map((session) => console.log(days[session.day]));
+
+// 	const formatedDays = () => {
+// 		return sessions.average.average_sessions.map((session) => ({
+// 			day: days[session.day],
+// 			sessionLength: session.sessionLength,
+// 		}));
+// 	};
+
+// 	/**
+// 	 * Customize the tooltip to display the average time when active
+// 	 * @param {boolean} active calculate internally
+// 	 * @param {array} payload data array were each object correspond to a Bar, calculated internally
+// 	 * @returns a tooltip displaying the data of the line (here minutes)
+// 	 */
+
+// 	const CustomTooltip = ({ active, payload }) => {
+// 		console.log(active);
+// 		if (active) {
+// 			return (
+// 				<div style={{ backgroundColor: 'white', color: 'black', padding: '1px' }}>
+// 					<p>{`${payload[0].payload.sessionLength} min`}</p>
+// 				</div>
+// 			);
+// 		}
+
+// 		return null;
+// 	};
+
+// 	// console.log(CustomTooltip);
+// 	return (
+// 		<div className="average_session_graph">
+// 			<h2 style={{ padding: 10, color: 'rgba(255, 255, 255, .5)', fontWeight: 400 }}>
+// 				Durée moyenne des sessions
+// 			</h2>
+// 			<ResponsiveContainer width="100%" height="80%" style={{ padding: 10 }}>
+// 				<LineChart max-width={500} max-height={200} data={formatedDays()}>
+// 					<XAxis
+// 						dataKey="day"
+// 						axisLine={true}
+// 						tickSize="0"
+// 						tick={{ color: 'white' }}
+// 						style={{ padding: 10, color: 'white' }}
+// 					/>
+// 					<Line
+// 						type="basis"
+// 						dataKey="sessionLength"
+// 						stroke="blue"
+// 						strokeWidth={2}
+// 						dot={false}
+// 						style={{ padding: 10, color: 'white' }}
+// 					/>
+// 					<Text textAnchor={null}></Text>
+// 					<Tooltip cursor={true} content={<CustomTooltip />} />
+// 				</LineChart>
+// 			</ResponsiveContainer>
+// 			{/* color: "rgba(255, 255, 255, .5)" */}
+// 		</div>
+// 	);
+// };
+
+// AverageSession.propTypes = {
+// 	data: PropTypes.arrayOf(
+// 		PropTypes.shape({
+// 			day: PropTypes.number.isRequired,
+// 			sessionLength: PropTypes.number.isRequired,
+// 		}),
+// 	),
+// };
+
+// export default AverageSession;
 
 //********** */
 

@@ -1,15 +1,16 @@
-import React, { useState, useContext, createContext } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../Header/Header.jsx';
 import NutrientsBar from '../NutrientsBar/NutrientsBar.jsx';
 import GraphicBar from '../GraphicBar/GraphicBar.jsx';
 import Objective from '../Objective/Objective.jsx';
+import useUsermain from '../../services/usermain.js';
+import useActivity from '../../services/activity.js';
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './data.js';
 import './Dashboard.scss';
 
 export default function Dashboard() {
 	const id = useParams();
-	const [data, setData] = useState([]);
 
 	let arrayUser = [USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE];
 	let arrayFromUser;
@@ -30,30 +31,23 @@ export default function Dashboard() {
 			}
 		}
 	}
-	// console.log(userNew[3]);
-	persona.id = userNew[0].id;
-	persona.firstName = userNew[0].userInfos.firstName;
-	persona.keyData = userNew[0].keyData;
-	persona.activity_sessions = userNew[1].sessions;
+
 	persona.average_sessions = userNew[2].sessions;
 	persona.perfomance_data = userNew[3].data;
 	persona.kind = userNew[3].kind;
 	// console.log(persona);
 
-	let user;
-	const UserContext = createContext(user);
-
 	//* 1. Trouver le nom dynamiquement */
-
+	let userMainData = useUsermain(id.id);
+	const { firstName, keyData, todayScore } = userMainData.user;
+	// console.log(useActivity(id.id));
 	return (
-		<UserContext.Provider value={user}>
-			<div className="dashboard">
-				<Header name={persona.firstName} />
-				<NutrientsBar nutrients={persona.keyData} />
-				<GraphicBar activity={persona.activity_sessions} />
-				<Objective average={persona} />
-			</div>
-		</UserContext.Provider>
+		<div className="dashboard">
+			<Header name={firstName} />
+			<NutrientsBar nutrients={keyData} />
+			<GraphicBar activity={useActivity(id.id)} />
+			<Objective average={persona} todayscore={todayScore} />
+		</div>
 	);
 }
 
