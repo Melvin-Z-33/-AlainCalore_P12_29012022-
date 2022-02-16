@@ -14,7 +14,6 @@ const useActivity = (userId) => {
 		const url = `http://localhost:3000/user/${userId}/activity`;
 
 		axios.get(url).then((response) => {
-			console.log(response.data.data);
 			setActivity(response.data.data.sessions);
 		});
 	}, [userId]);

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
 import './radarchart.scss';
@@ -14,7 +14,7 @@ import './radarchart.scss';
  */
 
 export default function Objectif2(props) {
-	const { performance, kind } = props;
+	const { data, kind } = props.performance;
 
 	if (props !== undefined) {
 		const capitalLetterKind = (activity) => {
@@ -26,7 +26,7 @@ export default function Objectif2(props) {
 					cx="50%"
 					cy="50%"
 					outerRadius="80%"
-					data={performance}
+					data={data}
 					margin={{ left: 25, right: 25 }}
 				>
 					<PolarGrid radialLines={false} />

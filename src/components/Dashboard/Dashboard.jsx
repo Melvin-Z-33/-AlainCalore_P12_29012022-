@@ -6,6 +6,8 @@ import GraphicBar from '../GraphicBar/GraphicBar.jsx';
 import Objective from '../Objective/Objective.jsx';
 import useUsermain from '../../services/usermain.js';
 import useActivity from '../../services/activity.js';
+import useAverageSessions from '../../services/average_sessions.js';
+import usePerformance from '../../services/performance.js';
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './data.js';
 import './Dashboard.scss';
 
@@ -40,13 +42,17 @@ export default function Dashboard() {
 	//* 1. Trouver le nom dynamiquement */
 	let userMainData = useUsermain(id.id);
 	const { firstName, keyData, todayScore } = userMainData.user;
-	// console.log(useActivity(id.id));
+	// console.log(usePerformance(id.id));
 	return (
 		<div className="dashboard">
 			<Header name={firstName} />
 			<NutrientsBar nutrients={keyData} />
 			<GraphicBar activity={useActivity(id.id)} />
-			<Objective average={persona} todayscore={todayScore} />
+			<Objective
+				average={useAverageSessions(id.id)}
+				performance={usePerformance(id.id)}
+				todayscore={todayScore}
+			/>
 		</div>
 	);
 }

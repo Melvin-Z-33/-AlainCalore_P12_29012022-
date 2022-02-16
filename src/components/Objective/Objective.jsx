@@ -8,10 +8,10 @@ export default function Objective(props) {
 	return (
 		<div className="objective">
 			<div className="rectangle">
-				<Averagesession average={props.average.average_sessions} />
+				<Averagesession average={props.average} />
 			</div>
 			<div className="rectangle">
-				<Objectif2 performance={props.average.perfomance_data} kind={props.average.kind} />
+				<Objectif2 performance={props.performance} />
 			</div>
 			<div className="rectangle">
 				<Objectif3 todayscore={props.average.todayScore} />
