@@ -1,5 +1,4 @@
 import './GrapicBar.scss';
-import React, { PureComponent } from 'react';
 import {
 	BarChart,
 	Bar,
@@ -12,66 +11,20 @@ import {
 	ResponsiveContainer,
 } from 'recharts';
 
-const data = [
-	{
-		day: '1',
-		calorie: 25000,
-		kg: 1000,
-		amt: 2400,
-	},
-	{
-		name: 'Page B',
-		uv: 3000,
-		pv: 1398,
-		amt: 2210,
-	},
-	{
-		name: 'Page C',
-		uv: 2000,
-		pv: 9800,
-		amt: 2290,
-	},
-	{
-		name: 'Page D',
-		uv: 2780,
-		pv: 3908,
-		amt: 2000,
-	},
-	{
-		name: 'Page E',
-		uv: 1890,
-		pv: 4800,
-		amt: 2181,
-	},
-	{
-		name: 'Page F',
-		uv: 2390,
-		pv: 3800,
-		amt: 2500,
-	},
-	{
-		name: 'Page G',
-		uv: 3490,
-		pv: 4300,
-		amt: 2100,
-	},
-];
-
 export default function GraphicBar(props) {
 	let dataForArrayActivity = [];
 
-	function test(array) {
+	function pushDataForArrayActivity(array) {
 		for (let i = 1; i < array.activity.length; i++) {
-			let obj = {
+			let dailyActivity = {
 				day: i,
 				kg: array.activity[i].kilogram,
 				Kcal: array.activity[i].calories,
 			};
-			dataForArrayActivity.push(obj);
+			dataForArrayActivity.push(dailyActivity);
 		}
-		// console.log(dataForArrayActivity);
 	}
-	test(props);
+	pushDataForArrayActivity(props);
 
 	const CustomTooltip = ({ active, payload }) => {
 		if (active) {
@@ -82,7 +35,6 @@ export default function GraphicBar(props) {
 				</div>
 			);
 		}
-
 		return null;
 	};
 
