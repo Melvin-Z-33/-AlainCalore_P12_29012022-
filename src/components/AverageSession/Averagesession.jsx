@@ -10,9 +10,12 @@ import {
 	Text,
 } from 'recharts';
 
+import './Averagesession.scss';
+
 const AverageSession = (sessions) => {
 	const { day, sessionLength } = sessions;
 	const days = { 1: 'L', 2: 'M', 3: 'M', 4: 'J', 5: 'V', 6: 'S', 7: 'D' };
+	console.log(sessions);
 
 	const formatedDays = () => {
 		return sessions.average.map((session) => ({
@@ -36,16 +39,16 @@ const AverageSession = (sessions) => {
 	return (
 		<>
 			<h2>Durée moyenne des sessions</h2>
-			<ResponsiveContainer width="100%" height="100%" style={{ padding: 10 }}>
+			<ResponsiveContainer width="100%" height="100%" style={{ padding: 0 }}>
 				<LineChart
-					width={300}
-					height={300}
+					width={200}
+					height={200}
 					data={formatedDays()}
 					margin={{
-						top: 5,
+						top: 30,
 						right: 0,
 						left: 0,
-						bottom: 5,
+						bottom: 0,
 					}}
 				>
 					<XAxis
@@ -56,7 +59,7 @@ const AverageSession = (sessions) => {
 						style={{ padding: 10, color: 'white' }}
 					/>
 
-					<Legend />
+					{/* <Legend /> */}
 
 					<Line
 						type="monotone"
@@ -67,7 +70,7 @@ const AverageSession = (sessions) => {
 						style={{ padding: 10, color: 'white' }}
 					/>
 					<Text textAnchor={null}></Text>
-					<Tooltip cursor={false} content={<CustomTooltip />} />
+					<Tooltip cursor={true} content={<CustomTooltip />} />
 				</LineChart>
 			</ResponsiveContainer>
 		</>

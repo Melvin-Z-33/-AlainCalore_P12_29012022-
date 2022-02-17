@@ -2,6 +2,7 @@ import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 
 import { PieChart, Pie, Cell, Legend } from 'recharts';
 
+import './score.scss';
 /**
  * GRAPHIC COMPONENT : This component function display the Goal's Pie chart
  * @param {(property|array)} goals This array contains 2 items <br>
@@ -20,20 +21,23 @@ function Score(props) {
 		{
 			name: (
 				<p className="radialchart-text">
-					<span>{props.todayscore}%</span> de votre objectif
+					<span className="score-percentage">{props.todayscore}%</span>{' '}
+					<span>de votre</span>
+					<span>objectif</span>
 				</p>
 			),
 
-			todayScore: '0.12',
+			todayScore: props.todayscore,
 			fill: '#FF0000',
 		},
 	];
 
 	const style = {
 		top: '50%',
-		right: 0,
-		transform: 'translate(0, -50%)',
+		right: '50%',
+		transform: 'translate(50%, -50%)',
 		lineHeight: '24px',
+		position: 'absolute',
 	};
 
 	return (
@@ -41,16 +45,17 @@ function Score(props) {
 			<h2 className="today_score_title">Score</h2>
 			<ResponsiveContainer width="100%" height="100%">
 				<RadialBarChart
-					width={730}
-					height={250}
+					width={137}
+					height={137}
 					innerRadius="60%"
 					outerRadius="80%"
 					data={data}
 					cx="50%"
 					cy="50%"
 					startAngle={90}
-					endAngle={90 + 360}
+					endAngle={90 + props.todayscore}
 					strokeWidth={15}
+					align="center"
 				>
 					<RadialBar dataKey="todayScore" cornerRadius={50} barSize={10} background />
 					<Legend

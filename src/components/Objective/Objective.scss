@@ -10,6 +10,7 @@
 	left: 0px;
 	top: 0px;
 	border-radius: 5px;
+	position: relative;
 }
 
 .rectangle:nth-child(1) {
@@ -17,8 +18,8 @@
 }
 
 .rectangle:nth-child(2) {
-	background-color: grey;
+	background: #282d30;
 }
 .rectangle:nth-child(3) {
-	background-color: #e5e5e5;
+	background-color: #fbfbfb;
 }

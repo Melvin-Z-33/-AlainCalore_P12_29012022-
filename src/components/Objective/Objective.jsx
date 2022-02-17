@@ -14,7 +14,7 @@ export default function Objective(props) {
 				<RadarChartActivity performance={props.performance} />
 			</div>
 			<div className="rectangle">
-				<Score todayscore={props.average.todayScore} />
+				<Score todayscore={props.todayscore} />
 			</div>
 		</div>
 	);

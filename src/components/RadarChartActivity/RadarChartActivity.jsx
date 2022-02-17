@@ -36,9 +36,9 @@ export default function RadarChartActivity(props) {
 					/>
 					<Radar
 						dataKey="value"
-						stroke="#8884d8"
+						stroke="#FF0101"
 						strokeWidth={0}
-						fill="#8884d8"
+						fill="#FF0101"
 						fillOpacity={0.6}
 					/>
 				</RadarChart>
