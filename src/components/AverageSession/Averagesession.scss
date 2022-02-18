@@ -10,7 +10,35 @@ h2 {
 	line-height: 24px;
 	letter-spacing: 0px;
 	text-align: left;
-	color: grey;
+	opacity: 0.5;
 	position: absolute;
 	display: block;
+}
+
+.average_session-title {
+	top: 20px;
+	left: 34px;
+	color: #bdc3c7;
+}
+
+.recharts-wrapper {
+	margin: auto;
+}
+.recharts-cartesian-axis {
+	color: #bdc3c7 !important;
+	opacity: 0.5;
+}
+
+.recharts-line {
+	display: white;
+	opacity: 0.5;
+	// width: 263px;
+	// height: 50px;
+	position: absolute;
+	margin-top: 20px;
+}
+
+.average_session-block .recharts-wrapper {
+	position: absolute;
+	top: 44px;
 }

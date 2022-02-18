@@ -1,3 +1,7 @@
+.score-block {
+	position: relative;
+}
+
 .today_score_title {
 	margin-top: 24px;
 	margin-left: 30px;
@@ -18,20 +22,23 @@
 	color: #20253a;
 }
 
-.radialchart-text {
+.score-block .radialchart-text {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	text-align: center;
+	background: white !important;
+	border-radius: 50%;
+	height: 158px !important;
+	width: 158px !important;
+	top: 60%;
 }
 
 .recharts-default-legend {
 	text-align: center;
 }
 
-.recharts-legend-wrapper {
-	background: white !important;
-	border-radius: 50%;
-	height: 137px !important;
-	width: 137px !important;
+.score-block .recharts-responsive-container {
+	position: absolute;
+	top: 0;
 }

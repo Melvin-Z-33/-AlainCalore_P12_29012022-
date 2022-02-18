@@ -1,7 +1,9 @@
 .nutrients-bar {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	align-items: center;
+	gap: 36px;
+	height: 688px;
 	img {
 		height: 60px;
 		width: 60px;
@@ -15,7 +17,7 @@
 	align-content: center;
 	background-color: #fbfbfb;
 	width: 258px;
-	height: 124px;
+	height: 139px;
 	border-radius: 5px;
 }
 
