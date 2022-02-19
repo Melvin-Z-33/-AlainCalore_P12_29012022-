@@ -4,7 +4,7 @@ import axios from 'axios';
 /**
  *
  * @param { Number } userId
- * @return { Array } userMainData
+ * @return { Array } data array for performance user
  */
 
 const usePerformance = (userId) => {

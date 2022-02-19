@@ -1,12 +1,8 @@
 import logo from './../../assets/logo.svg';
 import './Navbar.scss';
 import { NavLink } from 'react-router-dom';
-/**
- * Represents navigations of application.
- * @param {string} logo - image url.
- * @return Nav
- */
-function Navbar() {
+
+export default function Navbar() {
 	return (
 		<nav className="navbar">
 			<img src={logo} alt="bohnome qui court" className="navbar-logo" />
@@ -25,5 +21,3 @@ function Navbar() {
 		</nav>
 	);
 }
-
-export default Navbar;

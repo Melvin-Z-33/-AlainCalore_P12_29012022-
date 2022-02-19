@@ -2,7 +2,6 @@ import './GrapicBar.scss';
 import {
 	BarChart,
 	Bar,
-	Cell,
 	XAxis,
 	YAxis,
 	CartesianGrid,
@@ -13,6 +12,12 @@ import {
 
 export default function GraphicBar(props) {
 	let dataForArrayActivity = [];
+
+	/**
+	 * Create a daily activity object array
+	 * @param {array} param0  array from props
+	 * @returns {array}
+	 */
 
 	function pushDataForArrayActivity(array) {
 		for (let i = 1; i < array.activity.length; i++) {

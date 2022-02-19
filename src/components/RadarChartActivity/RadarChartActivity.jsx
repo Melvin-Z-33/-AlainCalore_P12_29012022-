@@ -1,16 +1,6 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import './radarchart.scss';
 
-/**
- * Represents a Radarchart.
- * @const {object} datasUser - object contain datas user.
- * @const {array} datas - array contain datas radial chart.
- * @const {object} kind - contain kind.
- * @function kindFormatter - return the kind with first letter in uppercase.
- * @return RadarChart
- *
- */
-
 export default function RadarChartActivity(props) {
 	const { data, kind } = props.performance;
 

@@ -1,20 +1,6 @@
-import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
-
-import { PieChart, Pie, Cell, Legend } from 'recharts';
+import { RadialBarChart, RadialBar, ResponsiveContainer, Legend } from 'recharts';
 
 import './score.scss';
-/**
- * GRAPHIC COMPONENT : This component function display the Goal's Pie chart
- * @param {(property|array)} goals This array contains 2 items <br>
- * - (number) "objectif" : item 0 - value of the actual goal
- * - (number) "objectif" : item 1 - difference between the actual goal and the max goal (default 100)
- * @param {(property|number)} actualGoal This value is for the legend and equal to the item 0 of the goals array
- * @param {(property|boolean)} isLoading It indicate if the data is loading or not
- * @returns the componant recharts PieChart. <br>
- * - GRAPHLIST_WIDTH : the graph's width
- * - GRAPHLIST_HEIGHT : the graph's height
- * - GRAPH_GOAL_COLORS : the graph's colors
- */
 
 function Score(props) {
 	const data = [
