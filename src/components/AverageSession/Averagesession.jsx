@@ -65,11 +65,6 @@ function formatXAxis(value) {
 }
 
 export default function AverageSessions(sessions) {
-	console.log(sessions);
-	if (!sessions) {
-		return null;
-	}
-
 	return (
 		<RespCtr width="100%" height={263}>
 			<LineChart data={sessions.average} margin={{ left: -5, bottom: -30 }}>
