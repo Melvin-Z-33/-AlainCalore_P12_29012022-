@@ -1,4 +1,5 @@
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, YAxis } from 'recharts';
+import propTypes from 'prop-types';
 import styled from 'styled-components';
 
 const RespCtr = styled(ResponsiveContainer)`
@@ -31,9 +32,9 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 /**
- * Change labels of the Xaxis
+ * Change labels of the X-axis by transforming the number into the initial of the letter of the day
  * @param {number} value
- * @returns string
+ * @returns string, the letter of the day
  */
 
 const formatsTheDays = (sessions) => {
@@ -43,8 +44,13 @@ const formatsTheDays = (sessions) => {
 	return formattedDay;
 };
 
+/**
+ *  Represent a AverageSessions
+ * @param {object} props.average
+ * @return AverageSessions, a component JSX
+ */
+
 export default function AverageSessions(sessions) {
-	console.log(sessions);
 	return (
 		<RespCtr width="100%" height={263}>
 			<LineChart data={sessions.average} margin={{ left: 0, bottom: -20 }}>
@@ -96,3 +102,7 @@ export default function AverageSessions(sessions) {
 		</RespCtr>
 	);
 }
+
+AverageSessions.propTypes = {
+	average: propTypes.array,
+};

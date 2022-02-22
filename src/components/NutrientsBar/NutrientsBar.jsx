@@ -3,7 +3,12 @@ import protein from '../../assets/nutrients/protein-icon.svg';
 import carbs from '../../assets/nutrients/carbs-icon.svg';
 import fat from '../../assets/nutrients/fat-icon.svg';
 import './nutrientsBar.scss';
+import propTypes from 'prop-types';
 
+/**
+ *  @param {array} props.nutrients  {calorieCount,carbohydrateCount,lipidCount,proteinCount}
+ *  @return NutrientsBar, a component JSX
+ */
 export default function NutrientsBar(props) {
 	const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = props.nutrients;
 
@@ -43,3 +48,12 @@ export default function NutrientsBar(props) {
 		</div>
 	);
 }
+
+NutrientsBar.propTypes = {
+	nutrients: propTypes.shape({
+		calorieCount: propTypes.number,
+		carbohydrateCount: propTypes.number,
+		lipidCount: propTypes.number,
+		proteinCount: propTypes.number,
+	}),
+};

@@ -5,30 +5,23 @@ import meditation from '../../assets/verticalbar/meditation.svg';
 import swing from '../../assets/verticalbar/swing.svg';
 import biking from '../../assets/verticalbar/biking.svg';
 import dump from '../../assets/verticalbar/dump.svg';
+import Button from '../Button/Button';
 
 export default function Verticalbar() {
 	return (
 		<div className="verticalbar">
 			<div className="verticalbar-grouplink">
 				<NavLink to="/" className="navbar-link">
-					<button>
-						<img src={meditation} alt=""></img>
-					</button>
+					<Button image={meditation} />
 				</NavLink>
 				<NavLink to="user/12" className="navbar-link">
-					<button>
-						<img src={swing} alt=""></img>
-					</button>
+					<Button image={swing} />
 				</NavLink>
 				<NavLink to="/" className="navbar-link">
-					<button>
-						<img src={biking} alt=""></img>
-					</button>
+					<Button image={biking} />
 				</NavLink>
 				<NavLink to="/" className="navbar-link">
-					<button>
-						<img src={dump} alt=""></img>
-					</button>
+					<Button image={dump} />
 				</NavLink>
 			</div>
 			<p className="verticalbar-text">Copyright, Sportsee 2020</p>

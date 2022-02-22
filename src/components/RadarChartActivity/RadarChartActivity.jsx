@@ -1,5 +1,6 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import './radarchart.scss';
+import propTypes from 'prop-types';
 
 export default function RadarChartActivity(props) {
 	const { data, kind } = props.performance;
@@ -38,3 +39,7 @@ export default function RadarChartActivity(props) {
 		return null;
 	}
 }
+
+RadarChartActivity.propTypes = {
+	performance: propTypes.object,
+};

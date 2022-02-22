@@ -4,7 +4,7 @@ import axios from 'axios';
 /**
  *
  * @param { Number } userId
- * @return { Array } data array for general user information
+ * @return { Object } data object for general user informations (id, firstName, todayScore, keyData)
  */
 
 const useUserMain = (userId) => {
@@ -12,7 +12,7 @@ const useUserMain = (userId) => {
 		user: {
 			id: '',
 			firstName: '',
-			todayScore: ' ',
+			todayScore: 0,
 			keyData: {},
 		},
 	});

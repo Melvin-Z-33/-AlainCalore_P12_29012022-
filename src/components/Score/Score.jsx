@@ -1,5 +1,5 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer, Legend } from 'recharts';
-
+import propTypes from 'prop-types';
 import './score.scss';
 
 function Score(props) {
@@ -59,3 +59,7 @@ function Score(props) {
 }
 
 export default Score;
+
+Score.propTypes = {
+	todayscore: propTypes.number,
+};

@@ -4,11 +4,11 @@ import axios from 'axios';
 /**
  *
  * @param { Number } userId
- * @return { Array } data array for performance user
+ * @return { Object } object of performance user (userID, data, kind)
  */
 
 const usePerformance = (userId) => {
-	const [performance, setPerformance] = useState([]);
+	const [performance, setPerformance] = useState({});
 
 	useEffect(() => {
 		const url = `http://localhost:3000/user/${userId}/performance`;

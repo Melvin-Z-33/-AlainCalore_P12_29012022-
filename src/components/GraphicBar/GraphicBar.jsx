@@ -9,6 +9,13 @@ import {
 	Legend,
 	ResponsiveContainer,
 } from 'recharts';
+import PropTypes from 'prop-types';
+/**
+ *  @param {object} props.activity  {day, kilogram,calories}
+ * @func pushDataForArrayActivity - return array of object {day, kilogram,calories}
+ * @func  CustomTooltip - return display tooltip
+ * @return GraphicBar s, a component JSX
+ */
 
 export default function GraphicBar(props) {
 	let dataForArrayActivity = [];
@@ -94,3 +101,7 @@ export default function GraphicBar(props) {
 		</div>
 	);
 }
+
+GraphicBar.propTypes = {
+	activity: PropTypes.array,
+};

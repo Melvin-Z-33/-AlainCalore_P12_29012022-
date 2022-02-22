@@ -3,6 +3,7 @@ import Averagesession from '../AverageSession/Averagesession';
 import RadarChartActivity from '../RadarChartActivity/RadarChartActivity';
 import Score from '../Score/Score';
 import './Objective.scss';
+import propTypes from 'prop-types';
 
 export default function Objective(props) {
 	const [classColor, setClassColor] = useState('');
@@ -29,3 +30,9 @@ export default function Objective(props) {
 		</div>
 	);
 }
+
+Objective.propTypes = {
+	average: propTypes.array,
+	performance: propTypes.object,
+	todayscore: propTypes.number,
+};
