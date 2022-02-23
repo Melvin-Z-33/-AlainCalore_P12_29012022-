@@ -13,9 +13,14 @@ const useActivity = (userId) => {
 	useEffect(() => {
 		const url = `http://localhost:3000/user/${userId}/activity`;
 
-		axios.get(url).then((response) => {
-			setActivity(response.data.data.sessions);
-		});
+		axios
+			.get(url)
+			.then((response) => {
+				setActivity(response.data.data.sessions);
+			})
+			.catch((error) => {
+				console.log(error.response.data.error);
+			});
 	}, [userId]);
 
 	return activity;

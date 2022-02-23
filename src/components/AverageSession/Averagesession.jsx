@@ -8,13 +8,25 @@ const RespCtr = styled(ResponsiveContainer)`
 `;
 
 /**
+ * Change labels of the X-axis by transforming the number into the initial of the letter of the day
+ * @param {number} value
+ * @returns string, the letter of the day
+ */
+
+const formatsTheDays = (sessions) => {
+	const days = { 1: 'L', 2: 'M', 3: 'M', 4: 'J', 5: 'V', 6: 'S', 7: 'D' };
+	let formattedDay = days[sessions];
+
+	return formattedDay;
+};
+
+/**
  * Create a custom tool tip
  * @param {number}
  * @returns HTML element
  */
-
 const CustomTooltip = ({ active, payload }) => {
-	if (active) {
+	if (active && payload !== null) {
 		return (
 			<div
 				style={{
@@ -27,21 +39,7 @@ const CustomTooltip = ({ active, payload }) => {
 			</div>
 		);
 	}
-
 	return null;
-};
-
-/**
- * Change labels of the X-axis by transforming the number into the initial of the letter of the day
- * @param {number} value
- * @returns string, the letter of the day
- */
-
-const formatsTheDays = (sessions) => {
-	const days = { 1: 'L', 2: 'M', 3: 'M', 4: 'J', 5: 'V', 6: 'S', 7: 'D' };
-	let formattedDay = days[sessions];
-
-	return formattedDay;
 };
 
 /**
@@ -74,7 +72,11 @@ export default function AverageSessions(sessions) {
 				>
 					sessions
 				</text>
-				<Tooltip cursor={false} content={<CustomTooltip />} />
+
+				{sessions.average === [] ? null : (
+					<Tooltip cursor={false} content={<CustomTooltip />} />
+				)}
+
 				<Line
 					dataKey="sessionLength"
 					type="monotone"

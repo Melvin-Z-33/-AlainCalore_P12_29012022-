@@ -39,7 +39,7 @@ export default function GraphicBar(props) {
 	pushDataForArrayActivity(props);
 
 	const CustomTooltip = ({ active, payload }) => {
-		if (active) {
+		if (active && payload !== null) {
 			return (
 				<div style={{ backgroundColor: '#E60000', color: 'white', padding: '5px' }}>
 					<p>{`${payload[0].value}kg`}</p>

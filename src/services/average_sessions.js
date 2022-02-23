@@ -13,9 +13,14 @@ const useAverageSessions = (userId) => {
 	useEffect(() => {
 		const url = `http://localhost:3000/user/${userId}/average-sessions`;
 
-		axios.get(url).then((response) => {
-			setAverageSession(response.data.data.sessions);
-		});
+		axios
+			.get(url)
+			.then((response) => {
+				setAverageSession(response.data.data.sessions);
+			})
+			.catch((error) => {
+				console.log(error.response.data.error);
+			});
 	}, [userId]);
 
 	return averageSession;

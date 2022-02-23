@@ -13,9 +13,14 @@ const usePerformance = (userId) => {
 	useEffect(() => {
 		const url = `http://localhost:3000/user/${userId}/performance`;
 
-		axios.get(url).then((response) => {
-			setPerformance(response.data.data);
-		});
+		axios
+			.get(url)
+			.then((response) => {
+				setPerformance(response.data.data);
+			})
+			.catch((error) => {
+				console.log(error.response.data.error);
+			});
 	}, [userId]);
 
 	return performance;

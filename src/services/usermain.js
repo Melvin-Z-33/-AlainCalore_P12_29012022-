@@ -20,16 +20,22 @@ const useUserMain = (userId) => {
 	useEffect(() => {
 		const url = `http://localhost:3000/user/${userId}`;
 
-		axios.get(url).then((response) => {
-			setMainData({
-				user: {
-					id: response.data.data.id,
-					firstName: response.data.data.userInfos.firstName,
-					todayScore: response.data.data.todayScore * 100,
-					keyData: response.data.data.keyData,
-				},
+		axios
+			.get(url)
+			.then((response) => {
+				setMainData({
+					user: {
+						id: response.data.data.id,
+						firstName: response.data.data.userInfos.firstName,
+						todayScore: response.data.data.todayScore * 100,
+						keyData: response.data.data.keyData,
+					},
+				});
+			})
+			.catch((error) => {
+				console.log(error.response.data.error);
+				alert('Veuillez entrez  un numéro de ID valide');
 			});
-		});
 	}, [userId]);
 
 	return userMainData;
