@@ -12,12 +12,12 @@
 
 -   Download the back-end repository : https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
 -   Download this repository for the application : https://github.com/Melvin-Z-33/-AlainCalore_P12_29012022-.git
--   Open the repository of the application with your editor
+-   Open the application repository with the terminal of your editor
 -   Run "npm install" or "yarn install"
 
 # Launching the project
 
 -   Go to the directory of your back-end repository
--   In your editor, run 'npm start' or 'yarn start'
+-   In the terminal of your editor, run 'npm start' or 'yarn start'
 -   Go to the directory of your application repository
--   In your editor, run 'npm start' or 'yarn start'
+-   In the terminal of your editor, run 'npm start' or 'yarn start'

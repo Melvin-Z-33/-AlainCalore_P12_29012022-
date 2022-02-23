@@ -22,8 +22,8 @@ export default function GraphicBar(props) {
 
 	/**
 	 * Create a daily activity object array
-	 * @param {array} param0  array from props
-	 * @returns {array}
+	 * @param {array} array  array from props.activity
+	 * @returns {array}    objects array (day, kg, Kcal )
 	 */
 
 	function pushDataForArrayActivity(array) {

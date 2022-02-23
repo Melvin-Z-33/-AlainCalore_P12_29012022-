@@ -8,8 +8,8 @@ const RespCtr = styled(ResponsiveContainer)`
 `;
 
 /**
- * Create a custom cursor on mouse over the charts
- * @param {number} param0
+ * Create a custom tool tip
+ * @param {number}
  * @returns HTML element
  */
 
