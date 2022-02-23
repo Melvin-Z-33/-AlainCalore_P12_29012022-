@@ -1,5 +1,5 @@
 .dashboard {
-	width: 1126px;
+	width: 100%;
 	height: 832px;
 	position: relative;
 	margin: 68px auto 0;
@@ -15,6 +15,20 @@
 		'graphic-bar graphic-bar graphic-bar nutrients-bar'
 		'objective objective objective nutrients-bar'
 		'objective objective objective nutrients-bar';
+
+	@media (max-width: 1290px) {
+		height: 923px;
+		padding-left: 10px;
+		margin: 10px auto 0;
+
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 50px 60px 60px 60px;
+		grid-template-areas:
+			'header header header '
+			'graphic-bar graphic-bar graphic-bar'
+			'objective objective objective '
+			'nutrients-bar nutrients-bar nutrients-bar';
+	}
 }
 
 .header {

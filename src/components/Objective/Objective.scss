@@ -3,6 +3,11 @@
 	gap: 30px;
 
 	margin-top: 36px;
+	@media (min-width: 1020px) and (max-width: 1290px) {
+		padding-left: 10px;
+		width: 100%;
+		justify-content: space-evenly;
+	}
 }
 
 .objective-firefox {
@@ -10,6 +15,11 @@
 	gap: 30px;
 	position: absolute;
 	bottom: 0;
+	@media (min-width: 1020px) and (max-width: 1290px) {
+		padding-left: 10px;
+		width: 100%;
+		justify-content: space-evenly;
+	}
 }
 
 .rectangle {

@@ -3,6 +3,12 @@
 	width: 835px;
 	border-radius: 5px;
 	background: #fbfbfb;
+	@media (max-width: 1288px) {
+		height: 304px;
+		position: absolute;
+		top: 53px;
+		width: 100%;
+	}
 }
 
 li .recharts-legend-item-text {
