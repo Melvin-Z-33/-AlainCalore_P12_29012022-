@@ -1,13 +1,15 @@
 .graphic-bar {
 	height: 349px;
-	width: 835px;
+	width: 100%;
 	border-radius: 5px;
 	background: #fbfbfb;
+	padding-left: 109px;
 	@media (max-width: 1288px) {
 		height: 304px;
 		position: absolute;
 		top: 53px;
 		width: 100%;
+		padding-left: 10px;
 	}
 }
 

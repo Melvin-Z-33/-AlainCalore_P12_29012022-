@@ -1,6 +1,10 @@
 header {
 	font-family: Roboto;
 	font-style: normal;
+	padding-left: 109px;
+	@media (max-width: 1288px) {
+		padding-left: 10px;
+	}
 
 	.user-firstname {
 		color: red;

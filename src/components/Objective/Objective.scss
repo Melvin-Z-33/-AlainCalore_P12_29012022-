@@ -1,24 +1,36 @@
 .objective {
 	display: flex;
+	justify-content: space-between;
 	gap: 30px;
-
+	padding-left: 109px;
 	margin-top: 36px;
-	@media (min-width: 1020px) and (max-width: 1290px) {
+	width: 100%;
+	min-width: 925px;
+
+	@media (min-width: 1000px) and (max-width: 1290px) {
+		min-width: 896px;
 		padding-left: 10px;
+		padding-right: 20px;
 		width: 100%;
-		justify-content: space-evenly;
+		justify-content: space-between;
+		position: absolute;
+		top: 453px;
 	}
 }
 
 .objective-firefox {
 	display: flex;
+	justify-content: space-between;
 	gap: 30px;
 	position: absolute;
 	bottom: 0;
+	padding-left: 109px;
+	width: 67%;
 	@media (min-width: 1020px) and (max-width: 1290px) {
 		padding-left: 10px;
+		padding-right: 20px;
 		width: 100%;
-		justify-content: space-evenly;
+		justify-content: space-between;
 	}
 }
 
